@@ -1,7 +1,7 @@
-import { PathItem, Item, collect } from "./index";
+import { PathItem, Item, collect } from "../index";
 
 describe("tree test", () => {
-  test("純粋な形", () => {
+  test.skip("純粋な形", () => {
     const inputPathItems: PathItem[] = [
       {
         path: "a.html",
@@ -19,7 +19,7 @@ describe("tree test", () => {
     expect(expectResult).toBe(result);
   });
 
-  test("絶対パスと相対パスの混在", () => {
+  test.skip("絶対パスと相対パスの混在", () => {
     const inputPathItems: PathItem[] = [
       {
         path: "a.html",
@@ -46,7 +46,7 @@ describe("tree test", () => {
     expect(expectResult).toBe(result);
   });
 
-  test("階層構造1", () => {
+  test.skip("階層構造1", () => {
     const inputPathItems: PathItem[] = [
       {
         path: "a.html",
@@ -79,7 +79,7 @@ describe("tree test", () => {
     const result = collect(inputPathItems);
     expect(expectResult).toBe(result);
   });
-  test("階層構造2", () => {
+  test.skip("階層構造2", () => {
     const inputPathItems: PathItem[] = [
       {
         path: "a/b/c.html",

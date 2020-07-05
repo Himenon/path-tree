@@ -4,9 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "test": "jest --watch"
   },
   "devDependencies": {
+    "ts-jest": "^26.1.1",
     "typescript": "^3.9.6"
   }
 }
