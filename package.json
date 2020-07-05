@@ -1,0 +1,27 @@
+{
+  "name": "path-tree",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "git@github.com:Himenon/path-tree.git",
+  "author": "Himenon",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "lint": "eslint -c ./.eslintrc.js 'packages/**/*.{ts,tsx}'",
+    "format": "yarn lint --fix && prettier --write \"**/*.{ts,tsx,js,jsx,json,yml,yaml,html,md}\""
+  },
+  "devDependencies": {
+    "lerna": "^3.22.0",
+    "jest": "^26.0.1",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "commitizen": "^4.1.2",
+    "@types/jest": "^25.2.3",
+    "cross-env": "^7.0.2",
+    "dependency-cruiser": "^9.4.0",
+    "sort-package-json": "^1.44.0"
+  }
+}

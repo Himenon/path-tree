@@ -1,0 +1,5 @@
+{
+  "*.{js,jsx,json,yml,yaml,html,md}": ["prettier --write"],
+  "*.{ts,tsx}": ["yarn run format", "yarn run lint"],
+  "package.json": ["sort-package-json"]
+}
