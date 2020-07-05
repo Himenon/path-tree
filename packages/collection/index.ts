@@ -5,27 +5,15 @@ export interface PathItem {
   type: "file" | "dir";
 }
 
-export interface FileItem {
-  type: "file";
-  name: string;
-  path: string;
-}
-
-export interface DirectoryItem {
-  type: "dir";
-  name: string;
-  path: string;
-  items: (FileItem | DirectoryItem)[];
-}
-
-export interface State {
-  nodes: PathItem[];
+export interface TreeData {
+  nodes: string[];
   edges: {
-    [dirname: string]: string;
+    [dirname: string]: string[];
+  };
+  data: {
+    [key: string]: PathItem;
   };
 }
-
-export type Item = FileItem | DirectoryItem;
 
 /**
  * vscodeのファイルツリーと同じ順序にならべる.
@@ -51,7 +39,7 @@ export const getParentDirectories = (pathItem: PathItem): string[] => {
   const dirs: Set<string> = new Set([rootDirPath]);
   const _getDir = (_path: string): string[] => {
     const _parentDirPath = _dirname(_path);
-    if (_parentDirPath === ".") {
+    if (_parentDirPath === "." || _parentDirPath === "/") {
       return Array.from(dirs);
     }
     dirs.add(_parentDirPath);
@@ -60,36 +48,31 @@ export const getParentDirectories = (pathItem: PathItem): string[] => {
   return _getDir(rootDirPath);
 };
 
-export const generateState = (pathItems: PathItem[]): State => {
+export const collect = (pathItems: PathItem[]): TreeData => {
   const directoryItems: PathItem[] = Array.from(new Set(pathItems.map(getParentDirectories).flat())).map((path) => ({
     type: "dir",
     path,
   }));
   const fileItems = pathItems.filter((item) => item.type === "file");
-  const state: State = {
-    nodes: directoryItems.concat(fileItems).sort(compareBasename),
-    edges: {},
+  const allItems = directoryItems.concat(fileItems).sort(compareBasename);
+  const nodes = allItems.map((item) => `${item.type}:${item.path}`);
+  const edges = allItems.reduce<TreeData["edges"]>((allEdges, node) => {
+    const parentDirname = _dirname(node.path);
+    const key = `dir:${parentDirname}`;
+    if (allEdges[key]) {
+      allEdges[key].push(`${node.type}:${node.path}`);
+    } else {
+      allEdges[key] = [`${node.type}:${node.path}`];
+    }
+    return allEdges;
+  }, {});
+  const data = allItems.reduce<TreeData["data"]>((allData, item) => {
+    allData[`${item.type}:${item.path}`] = item;
+    return allData;
+  }, {});
+  return {
+    nodes,
+    edges,
+    data,
   };
-  return state;
-};
-
-const generateNode = (pathItem: PathItem) => {
-  if (pathItem.type === "dir") {
-    // 全部directory
-    pathItem.path;
-  }
-};
-
-export const generateFolderTree = (pathItems: PathItem[]): Item[] => {
-  return pathItems.reduce<Item[]>((items, pathItem) => {
-    return items;
-  }, []);
-};
-
-export interface Option {
-  basePath: string;
-}
-
-export const collect = (pathItems: PathItem[], options?: Option): Item[] => {
-  return generateFolderTree(pathItems);
 };
