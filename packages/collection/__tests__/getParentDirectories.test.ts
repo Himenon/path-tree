@@ -1,21 +1,8 @@
-import { getParentDirectories, PathItem } from "../index";
+import { getParentDirectories } from "../index";
 
 describe("getParentDirectories", () => {
   test("type:dir", () => {
-    const expectResult: PathItem[] = [
-      {
-        type: "dir",
-        path: "./a/b/c",
-      },
-      {
-        type: "dir",
-        path: "./a/b",
-      },
-      {
-        type: "dir",
-        path: "./a",
-      },
-    ];
+    const expectResult: string[] = ["./a/b/c", "./a/b", "./a"];
     const result = getParentDirectories({
       type: "dir",
       path: "./a/b/c",
@@ -24,16 +11,7 @@ describe("getParentDirectories", () => {
   });
 
   test("type:file", () => {
-    const expectResult: PathItem[] = [
-      {
-        type: "dir",
-        path: "./a/b",
-      },
-      {
-        type: "dir",
-        path: "./a",
-      },
-    ];
+    const expectResult: string[] = ["./a/b", "./a"];
     const result = getParentDirectories({
       type: "file",
       path: "./a/b/c",

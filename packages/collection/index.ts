@@ -18,7 +18,7 @@ export interface DirectoryItem {
   items: (FileItem | DirectoryItem)[];
 }
 
-interface State {
+export interface State {
   nodes: PathItem[];
   edges: {
     [dirname: string]: string;
@@ -27,21 +27,50 @@ interface State {
 
 export type Item = FileItem | DirectoryItem;
 
-export const getParentDirectories = (pathItem: PathItem): PathItem[] => {
+/**
+ * vscodeのファイルツリーと同じ順序にならべる.
+ */
+export const compareBasename = (a: PathItem, b: PathItem): 0 | -1 | 1 => {
+  if (a.type === "dir" && b.type === "file") {
+    return -1;
+  }
+  if (a.type === "file" && b.type === "dir") {
+    return 1;
+  }
+  if (a.path.toLowerCase() < b.path.toLowerCase()) {
+    return -1;
+  }
+  if (a.path.toLowerCase() > b.path.toLowerCase()) {
+    return 1;
+  }
+  return 0;
+};
+
+export const getParentDirectories = (pathItem: PathItem): string[] => {
   const rootDirPath = pathItem.type === "file" ? _dirname(pathItem.path) : pathItem.path;
   const dirs: Set<string> = new Set([rootDirPath]);
-  const _getDir = (_path: string): PathItem[] => {
+  const _getDir = (_path: string): string[] => {
     const _parentDirPath = _dirname(_path);
     if (_parentDirPath === ".") {
-      return Array.from(dirs).map((p) => ({
-        type: "dir",
-        path: p,
-      }));
+      return Array.from(dirs);
     }
     dirs.add(_parentDirPath);
     return _getDir(_parentDirPath);
   };
   return _getDir(rootDirPath);
+};
+
+export const generateState = (pathItems: PathItem[]): State => {
+  const directoryItems: PathItem[] = Array.from(new Set(pathItems.map(getParentDirectories).flat())).map((path) => ({
+    type: "dir",
+    path,
+  }));
+  const fileItems = pathItems.filter((item) => item.type === "file");
+  const state: State = {
+    nodes: directoryItems.concat(fileItems).sort(compareBasename),
+    edges: {},
+  };
+  return state;
 };
 
 const generateNode = (pathItem: PathItem) => {
@@ -52,13 +81,7 @@ const generateNode = (pathItem: PathItem) => {
 };
 
 export const generateFolderTree = (pathItems: PathItem[]): Item[] => {
-  const state: State = {
-    nodes: pathItems,
-    edges: {},
-  };
   return pathItems.reduce<Item[]>((items, pathItem) => {
-    if (pathItem.type === "dir  ") {
-    }
     return items;
   }, []);
 };
