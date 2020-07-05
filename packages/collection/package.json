@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "jest --watch"
+    "test": "jest"
   },
   "devDependencies": {
     "ts-jest": "^26.1.1",
