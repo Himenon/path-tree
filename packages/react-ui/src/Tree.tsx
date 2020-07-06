@@ -19,15 +19,17 @@ const createTreeComponent = (edge: string, treeData: TreeData, visited: string[]
   const [type, name] = edge.split(":");
   if (type === "file") {
     return {
-      element: <File.Component name2={basename(name)} />,
+      element: <File.Component key={name} name2={basename(name)} />,
       visited,
     };
   } else {
     const children = treeData.edges[edge].map((childEdge) => {
-      return createTreeComponent(childEdge, treeData, visited);
+      const { element, visited: newVisited } = createTreeComponent(childEdge, treeData, visited);
+      newVisited.forEach((v) => visited.push(v));
+      return element;
     });
     return {
-      element: <Directory.Component name2={basename(name)} children={children} />,
+      element: <Directory.Component key={name} name2={basename(name)} children={children} />,
       visited,
     };
   }
@@ -35,11 +37,12 @@ const createTreeComponent = (edge: string, treeData: TreeData, visited: string[]
 
 const createItemElement = (treeData: TreeData) => {
   const visited: string[] = [];
-  return Object.keys(treeData.edges).map((edge) => {
+  const elements = Object.keys(treeData.edges).map((edge) => {
     const { visited: newVisited, element } = createTreeComponent(edge, treeData, visited);
     visited.concat(newVisited);
     return element;
   });
+  return elements.filter(Boolean);
 };
 
 export const Component: React.FC<Props> = (props) => {

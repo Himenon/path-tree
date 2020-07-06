@@ -7,8 +7,10 @@ export interface Props {
 export const Component: React.FC<Props> = (props) => {
   return (
     <ul key={props.name2}>
-      <li key={`${props.name2}-1`}>{props.name2}</li>
-      {props.children && <li key={`${props.name2}-2`}>{props.children}</li>}
+      <li key={`${props.name2}-1`}>
+        <span className="dir-name">{props.name2}</span>
+        {props.children && props.children}
+      </li>
     </ul>
   );
 };
