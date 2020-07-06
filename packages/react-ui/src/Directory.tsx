@@ -1,17 +1,21 @@
 import * as React from "react";
 
 export interface Props {
-  name2: string;
+  path: string;
+  level: number;
 }
 
 export type ComponentType = React.ComponentType<Props>;
 
 export const Component: ComponentType = (props) => {
+  const [isActive, toggle] = React.useState(true);
   return (
-    <ul key={props.name2}>
-      <li key={`${props.name2}-1`}>
-        <span className="dir-name">{props.name2}</span>
-        {props.children && props.children}
+    <ul key={props.path}>
+      <li key={`${props.path}-1`}>
+        <span className="dir-name" onClick={() => toggle(!isActive)}  style={{ paddingLeft: `${props.level - 1}em` }}>
+          {props.path}
+        </span>
+        {isActive && props.children}
       </li>
     </ul>
   );

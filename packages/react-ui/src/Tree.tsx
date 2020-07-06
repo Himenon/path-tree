@@ -17,7 +17,13 @@ interface ComponentSet {
   DirectoryComponent: Directory.ComponentType;
 }
 
-const createTreeComponent = (edge: string, treeData: TreeData, visited: string[], { FileComponent, DirectoryComponent }: ComponentSet) => {
+const createTreeComponent = (
+  edge: string,
+  treeData: TreeData,
+  visited: string[],
+  { FileComponent, DirectoryComponent }: ComponentSet,
+  level = 0,
+) => {
   if (visited.includes(edge)) {
     return undefined;
   } else {
@@ -26,17 +32,22 @@ const createTreeComponent = (edge: string, treeData: TreeData, visited: string[]
   const [type, name] = edge.split(":");
   if (type === "file") {
     const props: File.Props = {
-      name2: basename(name),
+      path: basename(name),
+      level,
     };
     return <FileComponent key={name} {...props} />;
   }
   // Directory
   const children = treeData.edges[edge].map((childEdge) => {
-    return createTreeComponent(childEdge, treeData, visited, { FileComponent, DirectoryComponent });
+    return createTreeComponent(childEdge, treeData, visited, { FileComponent, DirectoryComponent }, level + 1);
   });
   const props: Directory.Props = {
-    name2: basename(name),
+    path: basename(name),
+    level,
   };
+  if (props.path === ".") {
+    return children;
+  }
   return <DirectoryComponent key={name} {...props} children={children} />;
 };
 

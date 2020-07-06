@@ -2,34 +2,57 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as PathTreeUi from "./";
 
-const MyDirectoryComponent: PathTreeUi.Tree.File.ComponentType = (props) => {
-  return (
-    <ul key={props.name2}>
-      <li key={`${props.name2}-1`}>
-        <span className="dir-name">Directory!! {props.name2}</span>
-        {props.children && props.children}
-      </li>
-    </ul>
-  );
-};
-
-const MyFileComponent: PathTreeUi.Tree.File.ComponentType = (props) => {
-  return <p>Name2: {props.name2}</p>;
-};
-
 const props: PathTreeUi.Tree.Props = {
   pathItems: [
     {
       type: "file",
-      path: "a/b/index.js",
+      path: "commitlint.config.js ",
     },
     {
       type: "file",
-      path: "a/b/c/index.js",
+      path: "node_modules",
+    },
+    {
+      type: "file",
+      path: "renovate.json",
+    },
+    {
+      type: "file",
+      path: "jest.config.json",
+    },
+    {
+      type: "file",
+      path: "package.json",
+    },
+    {
+      type: "file",
+      path: "tsconfig.json",
+    },
+    {
+      type: "file",
+      path: "lerna.json",
+    },
+    {
+      type: "file",
+      path: "packages/collection/package.json",
+    },
+    {
+      type: "file",
+      path: "packages/collection/tsconfig.json",
+    },
+    {
+      type: "file",
+      path: "packages/react-ui/package.json",
+    },
+    {
+      type: "file",
+      path: "packages/react-ui/tsconfig.json",
+    },
+    {
+      type: "file",
+      path: "yarn.lock",
     },
   ],
-  FileComponent: MyFileComponent,
-  DirectoryComponent: MyDirectoryComponent,
 };
 
 const Component: React.FC = () => {

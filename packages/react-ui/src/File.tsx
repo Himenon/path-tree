@@ -1,11 +1,16 @@
 import * as React from "react";
 
 export interface Props {
-  name2: string;
+  path: string;
+  level: number;
 }
 
 export type ComponentType = React.ComponentType<Props>;
 
 export const Component: ComponentType = (props) => {
-  return <p className="file-name">{props.name2}</p>;
+  return (
+    <p className="file-name" style={{ paddingLeft: `${props.level - 1}em` }}>
+      {props.path}
+    </p>
+  );
 };
