@@ -19,37 +19,31 @@ interface ComponentSet {
 
 const createTreeComponent = (edge: string, treeData: TreeData, visited: string[], { FileComponent, DirectoryComponent }: ComponentSet) => {
   if (visited.includes(edge)) {
-    return {
-      element: undefined,
-      visited,
-    };
+    return undefined;
+  } else {
+    visited.push(edge);
   }
-  visited.push(edge);
   const [type, name] = edge.split(":");
   if (type === "file") {
-    return {
-      element: <FileComponent key={name} name2={basename(name)} />,
-      visited,
+    const props: File.Props = {
+      name2: basename(name),
     };
-  } else {
-    const children = treeData.edges[edge].map((childEdge) => {
-      const { element, visited: newVisited } = createTreeComponent(childEdge, treeData, visited, { FileComponent, DirectoryComponent });
-      newVisited.forEach((v) => visited.push(v));
-      return element;
-    });
-    return {
-      element: <DirectoryComponent key={name} name2={basename(name)} children={children} />,
-      visited,
-    };
+    return <FileComponent key={name} {...props} />;
   }
+  // Directory
+  const children = treeData.edges[edge].map((childEdge) => {
+    return createTreeComponent(childEdge, treeData, visited, { FileComponent, DirectoryComponent });
+  });
+  const props: Directory.Props = {
+    name2: basename(name),
+  };
+  return <DirectoryComponent key={name} {...props} children={children} />;
 };
 
 const createItemElement = (treeData: TreeData, componentSet: ComponentSet) => {
   const visited: string[] = [];
   const elements = Object.keys(treeData.edges).map((edge) => {
-    const { visited: newVisited, element } = createTreeComponent(edge, treeData, visited, componentSet);
-    visited.concat(newVisited);
-    return element;
+    return createTreeComponent(edge, treeData, visited, componentSet);
   });
   return elements;
 };
