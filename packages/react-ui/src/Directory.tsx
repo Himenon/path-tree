@@ -4,7 +4,9 @@ export interface Props {
   name2: string;
 }
 
-export const Component: React.FC<Props> = (props) => {
+export type ComponentType = React.ComponentType<Props>;
+
+export const Component: ComponentType = (props) => {
   return (
     <ul key={props.name2}>
       <li key={`${props.name2}-1`}>
