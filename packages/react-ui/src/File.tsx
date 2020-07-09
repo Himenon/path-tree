@@ -14,3 +14,5 @@ export const Component: ComponentType = (props) => {
     </p>
   );
 };
+
+Component.displayName = "File";

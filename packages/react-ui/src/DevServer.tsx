@@ -63,4 +63,6 @@ const Component: React.FC = () => {
   );
 };
 
+Component.displayName = "DevServer";
+
 ReactDOM.render(<Component />, document.querySelector("#root"));

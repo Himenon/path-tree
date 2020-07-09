@@ -20,3 +20,5 @@ export const Component: ComponentType = (props) => {
     </ul>
   );
 };
+
+Component.displayName = "Directory";

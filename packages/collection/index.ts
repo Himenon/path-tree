@@ -1,18 +1,24 @@
 import { dirname as _dirname } from "path";
 
+export type TreeNode = string;
+
+export interface TreeEdges {
+  [dirname: string]: TreeNode[];
+}
+
 export interface PathItem {
   path: string;
   type: "file" | "dir";
 }
 
+export interface Data {
+  [key: string]: PathItem;
+}
+
 export interface TreeData {
-  nodes: string[];
-  edges: {
-    [dirname: string]: string[];
-  };
-  data: {
-    [key: string]: PathItem;
-  };
+  nodes: TreeNode[];
+  edges: TreeEdges;
+  data: Data;
 }
 
 /**
@@ -66,7 +72,7 @@ export const collect = (pathItems: PathItem[]): TreeData => {
     }
     return allEdges;
   }, {});
-  const data = allItems.reduce<TreeData["data"]>((allData, item) => {
+  const data: Data = allItems.reduce<TreeData["data"]>((allData, item) => {
     allData[`${item.type}:${item.path}`] = item;
     return allData;
   }, {});
