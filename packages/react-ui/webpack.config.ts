@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import * as express from "express";
 import webpack from "webpack";
 import * as path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
@@ -6,6 +7,7 @@ import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import ManifestPlugin from "webpack-manifest-plugin";
 import TerserPlugin from "terser-webpack-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import resolvePkg from "resolve-pkg";
 
 const ForkTsCheckerNotifierWebpackPlugin = require("fork-ts-checker-notifier-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
@@ -15,6 +17,14 @@ const rootPath = path.resolve(__dirname, "./");
 const appPath = (nextPath: string) => path.join(rootPath, nextPath);
 
 const pkg = require("./package.json");
+
+const find = (inputPath: string) => {
+  const result = resolvePkg(inputPath);
+  if (!result) {
+    throw new Error(`Not found: ${inputPath}`);
+  }
+  return result;
+};
 
 export const generateConfig = (isProduction: boolean): webpack.Configuration => {
   const isCI = process.env.CI;
@@ -77,10 +87,15 @@ export const generateConfig = (isProduction: boolean): webpack.Configuration => 
     },
     // @ts-ignore
     devServer: {
-      contentBase: appPath("dist"),
+      watchContentBase: true,
+      contentBase: appPath("public"),
       compress: true,
       port: 9000,
       open: true,
+      before: (app: express.Application, _server: any) => {
+        app.use("/scripts/react.development.js", express.static(find("react/umd/react.development.js")));
+        app.use("/scripts/react-dom.development.js", express.static(find("react-dom/umd/react-dom.development.js")));
+      },
     },
     devtool: "cheap-source-map",
     plugins: [
@@ -93,6 +108,8 @@ export const generateConfig = (isProduction: boolean): webpack.Configuration => 
       new HtmlWebpackPlugin({
         title: pkg.name,
         template: "public/index.html",
+        React: isProduction ? "/scripts/react.production.min.js" : "/scripts/react.development.js",
+        ReactDOM: isProduction ? "/scripts/react-dom.production.min.js" : "/scripts/react-dom.development.js",
       }),
       new ManifestPlugin(),
     ].filter(Boolean),
