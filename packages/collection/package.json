@@ -2,6 +2,8 @@
   "name": "@path-tree/collection",
   "version": "1.0.0",
   "main": "index.js",
+  "types": "index.d.ts",
+  "description": "Provides a hierarchy of directories and files from a one-dimensional array of objects, including.",
   "license": "MIT",
   "files": [
     "index.js",
