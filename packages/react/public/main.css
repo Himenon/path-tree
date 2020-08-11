@@ -1,0 +1,51 @@
+@import url('https://rsms.me/inter/inter.css');
+
+.tree {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.directory {
+  list-style: none;
+  padding: 2px 0 0 0;
+}
+
+.directory-item {
+  display: inline;
+}
+
+.directory-item-name {
+  display: block;
+  padding-bottom: 1px;
+}
+
+.directory-item-name:hover {
+  background-color: #EEEEEE;
+}
+
+.directory-item-name:hover {
+  cursor: pointer;
+}
+
+.tree-item.directory {
+  border-left: 1px solid #EEE;
+  padding-left: 0.5em;
+  margin-left: 0.5em;
+}
+
+.tree-item.file-item {
+  border-left: 1px solid #EEE;
+  padding: 2px 0 2px 0.5em;
+  margin-left: 0.5em;
+}
+
+.file-item:hover {
+  background-color: #EEEEEE;
+  cursor: pointer;
+}

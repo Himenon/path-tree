@@ -8,11 +8,7 @@ export interface Props {
 export type ComponentType = React.ComponentType<Props>;
 
 export const Component: ComponentType = (props) => {
-  return (
-    <p className="file-name" style={{ paddingLeft: `${props.level - 1}em` }}>
-      {props.path}
-    </p>
-  );
+  return <p className="tree-item file-item">{props.path}</p>;
 };
 
 Component.displayName = "File";
