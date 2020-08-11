@@ -2,6 +2,8 @@
 
 ## Usage
 
+[DEMO](https://codesandbox.io/s/react-path-tree-demo-khbxc)
+
 ### Basic Usage
 
 ```tsx
