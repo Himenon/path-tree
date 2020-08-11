@@ -2,10 +2,16 @@
   "name": "@path-tree/react",
   "version": "1.0.0",
   "main": "index.js",
+  "files": [
+    "README.md",
+    ""
+  ],
   "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --config ./webpack.config.ts",
-    "build": "NODE_ENV=development webpack --config ./webpack.config.ts"
+    "build": "yarn build:tsc",
+    "build:webpack": "NODE_ENV=development webpack --config ./webpack.config.ts",
+    "build:tsc": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
     "react": "^16.13.1",

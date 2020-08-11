@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import * as PathTreeUi from ".";
+import * as PathTree from ".";
 
-const props: PathTreeUi.Tree.Props = {
+const props: PathTree.Props = {
   pathItems: [
     "commitlint.config.js",
     "jest.config.json",
@@ -51,7 +51,7 @@ const props: PathTreeUi.Tree.Props = {
 const Component: React.FC = () => {
   return (
     <div className="tree">
-      <PathTreeUi.Tree.Component {...props} />
+      <PathTree.Component {...props} />
     </div>
   );
 };
