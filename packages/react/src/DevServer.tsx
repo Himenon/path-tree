@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import * as PathTreeUi from "./";
+import * as PathTreeUi from ".";
 
 const props: PathTreeUi.Tree.Props = {
   pathItems: [
