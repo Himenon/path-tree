@@ -8,13 +8,15 @@ import * as DirectoryTree from "./DirectoryTree";
 export { File, Directory };
 
 export interface Props {
-  pathItems: PathItem[];
+  pathItems: Array<PathItem | string>;
   FileComponent?: File.ComponentType;
   DirectoryComponent?: Directory.ComponentType;
 }
 
 export const Component: React.FC<Props> = (props) => {
-  const [{ pathItems, FileComponent = File.Component, DirectoryComponent = Directory.Component }, updateProps] = React.useState(props);
+  const [{ pathItems: inputPathItems, FileComponent = File.Component, DirectoryComponent = Directory.Component }, updateProps] = React.useState(
+    props,
+  );
   React.useEffect(() => {
     updateProps(props);
   }, [props]);
@@ -22,6 +24,15 @@ export const Component: React.FC<Props> = (props) => {
     FileComponent,
     DirectoryComponent,
   };
+  const pathItems: PathItem[] = inputPathItems.map((item) => {
+    if (typeof item === "string") {
+      return {
+        type: "file",
+        path: item,
+      };
+    }
+    return item;
+  });
   const treeData = collect(pathItems);
   return <DirectoryTree.Component treeData={treeData} componentSet={componentSet} />;
 };

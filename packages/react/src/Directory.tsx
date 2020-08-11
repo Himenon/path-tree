@@ -8,11 +8,11 @@ export interface Props {
 export type ComponentType = React.ComponentType<Props>;
 
 export const Component: ComponentType = (props) => {
-  const [isActive, toggle] = React.useState(true);
+  const [isActive, toggle] = React.useState(false);
   return (
-    <ul key={props.path}>
-      <li key={`${props.path}-1`}>
-        <span className="dir-name" onClick={() => toggle(!isActive)}  style={{ paddingLeft: `${props.level - 1}em` }}>
+    <ul className="tree-item directory" key={props.path}>
+      <li className="directory-item" key={props.path}>
+        <span className="directory-item-name" aria-pressed={isActive} onClick={() => toggle(!isActive)}>
           {props.path}
         </span>
         {isActive && props.children}

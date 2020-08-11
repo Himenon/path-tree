@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["src/Directory.tsx", "src/DirectoryTree.tsx", "src/File.tsx", "src/Tree.tsx", "src/index.tsx"],
+  "compilerOptions": {
+    "lib": ["ES2019", "DOM"],
+    "module": "commonjs",
+    "target": "ES2019",
+    "outDir": "lib",
+    "rootDir": "src",
+    "sourceMap": false
+  },
+  "exclude": ["node_modules"]
+}
