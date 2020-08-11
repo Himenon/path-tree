@@ -13,43 +13,39 @@
 
 .directory {
   list-style: none;
-  padding: 2px 0 2px 0;
+  padding: 2px 0 0 0;
 }
 
 .directory-item {
+  display: inline;
 }
 
 .directory-item-name {
+  display: block;
+  padding-bottom: 1px;
 }
 
 .directory-item-name:hover {
-  color: blue;
+  background-color: #EEEEEE;
+}
+
+.directory-item-name:hover {
   cursor: pointer;
 }
 
-.file-item {
-  padding: 2px 0 2px 0;
+.tree-item.directory {
+  border-left: 1px solid #EEE;
+  padding-left: 0.5em;
+  margin-left: 0.5em;
 }
 
-.tree-item:before {
-  content: "├─";
-  display: inline-block;
-  padding-right: 0.5em;
-}
-
-.tree-item:last-child:before {
-  content: "└─";
-  display: inline-block;
-  padding-right: 0.5em;
+.tree-item.file-item {
+  border-left: 1px solid #EEE;
+  padding: 2px 0 2px 0.5em;
+  margin-left: 0.5em;
 }
 
 .file-item:hover {
-  color: red;
+  background-color: #EEEEEE;
   cursor: pointer;
 }
-
-
-.directory .file-item {
-  padding: 2px 0 2px 1em;
-}
-

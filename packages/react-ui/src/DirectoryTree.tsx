@@ -27,7 +27,7 @@ const createTreeComponent = (
       path: basename(name),
       level,
     };
-    return <FileComponent key={name} {...props} />;
+    return <FileComponent key={edge} {...props} />;
   }
   const children = treeData.edges[edge].map((childEdge) => {
     return createTreeComponent(childEdge, treeData, visited, { FileComponent, DirectoryComponent }, level + 1);
@@ -39,7 +39,7 @@ const createTreeComponent = (
   if (props.path === ".") {
     return <React.Fragment key={`level-${level}`}>{children}</React.Fragment>;
   }
-  return <DirectoryComponent key={name} {...props} children={children} />;
+  return <DirectoryComponent key={edge} {...props} children={children} />;
 };
 
 export interface Props {
