@@ -1,6 +1,6 @@
 {
   "name": "@path-tree/react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Provides components with a hierarchical structure.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -21,7 +21,7 @@
     "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "@path-tree/collection": "0.1.0"
+    "@path-tree/collection": "^0.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
