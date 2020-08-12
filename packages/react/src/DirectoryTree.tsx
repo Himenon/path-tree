@@ -21,10 +21,11 @@ const createTreeComponent = (
   } else {
     visited.push(edge);
   }
-  const [type, name] = edge.split(":");
+  const [type, fullPath] = edge.split(":");
   if (type === "file") {
     const props: File.Props = {
-      path: basename(name),
+      path: fullPath,
+      name: basename(fullPath),
       level,
     };
     return <FileComponent key={edge} {...props} />;
@@ -33,10 +34,11 @@ const createTreeComponent = (
     return createTreeComponent(childEdge, treeData, visited, { FileComponent, DirectoryComponent }, level + 1);
   });
   const props: Directory.Props = {
-    path: basename(name),
+    path: fullPath,
+    name: basename(fullPath),
     level,
   };
-  if (props.path === ".") {
+  if (props.name === ".") {
     return <React.Fragment key={`level-${level}`}>{children}</React.Fragment>;
   }
   return <DirectoryComponent key={edge} {...props} children={children} />;

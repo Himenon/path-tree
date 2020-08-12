@@ -13,7 +13,7 @@ export interface Props {
   DirectoryComponent?: Directory.ComponentType;
 }
 
-export const Component: React.FC<Props> = (props) => {
+const useTree = (props: Props) => {
   const [{ pathItems: inputPathItems, FileComponent = File.Component, DirectoryComponent = Directory.Component }, updateProps] = React.useState(
     props,
   );
@@ -34,6 +34,14 @@ export const Component: React.FC<Props> = (props) => {
     return item;
   });
   const treeData = collect(pathItems);
+  return {
+    componentSet,
+    treeData,
+  };
+};
+
+export const Component: React.FC<Props> = (props) => {
+  const { treeData, componentSet } = useTree(props);
   return <DirectoryTree.Component treeData={treeData} componentSet={componentSet} />;
 };
 
