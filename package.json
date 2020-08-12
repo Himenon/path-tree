@@ -13,14 +13,14 @@
     "format": "yarn lint --fix && prettier --write \"**/*.{ts,tsx,js,jsx,json,yml,yaml,html,md}\""
   },
   "devDependencies": {
-    "lerna": "^3.22.0",
-    "jest": "^26.0.1",
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "commitizen": "^4.1.2",
-    "@types/jest": "^25.2.3",
-    "cross-env": "^7.0.2",
-    "dependency-cruiser": "^9.4.0",
-    "sort-package-json": "^1.44.0"
+    "lerna": "3.22.1",
+    "jest": "26.1.0",
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "commitizen": "4.1.2",
+    "@types/jest": "25.2.3",
+    "cross-env": "7.0.2",
+    "dependency-cruiser": "9.8.1",
+    "sort-package-json": "1.44.0"
   }
 }
