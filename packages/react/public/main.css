@@ -20,8 +20,24 @@
   display: inline;
 }
 
+.directory-item[data-open=false]::before {
+  content: "+";
+  padding-left: 4px;
+  margin-right: 3px;
+  display: inline-block;
+  width: 1em;
+}
+
+.directory-item[data-open=true]::before {
+  content: "-";
+  padding-left: 4px;
+  margin-right: 3px;
+  display: inline-block;
+  width: 1em;
+}
+
 .directory-item-name {
-  display: block;
+  display: inline-block;
   padding-bottom: 1px;
 }
 
@@ -48,4 +64,15 @@
 .file-item:hover {
   background-color: #EEEEEE;
   cursor: pointer;
+}
+
+.file-item::before {
+  content: "";
+  display: inline-block;
+  padding-left: 4px;
+  margin-right: 3px;
+  width: 1em;
+  height: 1em;
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20version%3D%221.1%22%20id%3D%22_x32_%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20512%20512%22%20style%3D%22width%3A%20256px%3B%20height%3A%20256px%3B%20opacity%3A%201%3B%22%20xml%3Aspace%3D%22preserve%22%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%20.st0%7Bfill%3A%234B4B4B%3B%7D%3C%2Fstyle%3E%3Cg%3E%20%3Cpath%20class%3D%22st0%22%20d%3D%22M198.765%2C0L53.398%2C145.383V512h405.204V0H198.765z%20M196.634%2C49.667v93.576h-93.577L196.634%2C49.667z%20M424.995%2C478.393H87.005V172.897h139.29V33.614h198.7V478.393z%22%20style%3D%22fill%3A%20rgb(75%2C%2075%2C%2075)%3B%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
 }
