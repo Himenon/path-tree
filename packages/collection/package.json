@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "ts-jest": "26.1.1",
-    "typescript": "3.9.6"
+    "typescript": "3.9.7"
   },
   "publishConfig": {
     "access": "public"
