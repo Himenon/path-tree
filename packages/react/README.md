@@ -1,8 +1,16 @@
 # [@path-tree/react](https://github.com/Himenon/path-tree/tree/master/packages/react)
 
+[![npm version](https://badge.fury.io/js/%40path-tree%2Freact.svg)](https://badge.fury.io/js/%40path-tree%2Freact)
+
 ## Usage
 
 [DEMO](https://codesandbox.io/s/react-path-tree-demo-khbxc)
+
+### Install
+
+```bash
+yarn add @path-tree/react
+```
 
 ### Basic Usage
 
