@@ -1,0 +1,32 @@
+{
+  "name": "@path-tree/vue",
+  "version": "0.2.0",
+  "description": "Provides components with a hierarchical structure.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "README.md",
+    "lib"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=development webpack-dev-server --config ./webpack.config.ts",
+    "build": "yarn clean && yarn build:tsc",
+    "build:webpack": "NODE_ENV=development webpack --config ./webpack.config.ts",
+    "build:tsc": "tsc -p tsconfig.json",
+    "clean": "rimraf lib tsconfig.tsbuildinfo"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "dependencies": {
+    "@path-tree/collection": "^0.2.0"
+  },
+  "devDependencies": {
+    "vue": "^2.6.11"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
