@@ -1,6 +1,6 @@
 {
   "name": "@path-tree/collection",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "index.js",
   "types": "index.d.ts",
   "description": "Provides a hierarchy of directories and files from a one-dimensional array of objects, including.",
