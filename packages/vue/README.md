@@ -4,10 +4,12 @@
 
 ## Usage
 
+[DEMO](https://codesandbox.io/s/vue-path-tree-demo-72p76)
+
 ### Install
 
 ```bash
-yarn add @path-tree/vue
+yarn add @path-tree/vue tslib
 ```
 
 ### Basic Usage
@@ -35,6 +37,39 @@ new Vue({
       props,
     }),
 }).$mount("#root");
+```
+
+#### use `.vue`
+
+```vue
+<template>
+  <PathTree :pathItems="pathItems"></PathTree>
+</template>
+
+<script>
+import * as PathTree from "@path-tree/vue";
+
+export default {
+  name: "Tree",
+  components: {
+    PathTree: PathTree.Component,
+  },
+  data() {
+    return {
+      pathItems: [
+        {
+          type: "file",
+          path: "a/b/index.js",
+        },
+        {
+          type: "file",
+          path: "a/b/c/index.js",
+        },
+      ],
+    };
+  },
+};
+</script>
 ```
 
 ### Define components
