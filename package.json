@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "lerna": "3.22.1",
-    "jest": "26.3.0",
+    "jest": "26.4.0",
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "commitizen": "4.1.2",
