@@ -24,7 +24,7 @@ export const Component = Vue.extend<Props>({
   },
   functional: true,
   render: function (createElement, { props }) {
-    return createElement("p", { class: "tree-item file-item" } , props.name);
+    return createElement("p", { class: "tree-item file-item" }, props.name);
   },
 });
 
