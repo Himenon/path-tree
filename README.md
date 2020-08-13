@@ -16,6 +16,10 @@ Provides components with a hierarchical structure.
 
 [DEMO](https://codesandbox.io/s/react-path-tree-demo-khbxc)
 
+### [`@path-tree/vue`](packages/vue)
+
+[![npm version](https://badge.fury.io/js/%40path-tree%2Fvue.svg)](https://badge.fury.io/js/%40path-tree%2Fvue)
+
 ## LICENSE
 
 `@path-tree` is [MIT licensed](./LICENSE).
