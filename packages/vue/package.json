@@ -1,6 +1,6 @@
 {
   "name": "@path-tree/vue",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Provides components with a hierarchical structure.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
