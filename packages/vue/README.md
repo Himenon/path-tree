@@ -7,7 +7,7 @@
 ### Install
 
 ```bash
-yarn add @path-tree/vue
+yarn add @path-tree/vue tslib
 ```
 
 ### Basic Usage
