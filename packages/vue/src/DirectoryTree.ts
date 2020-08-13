@@ -45,7 +45,7 @@ const createTreeComponent = (
     level,
   };
   if (props.name === ".") {
-    return createElement("div", { class: "tree" } , children);
+    return createElement("div", { class: "tree" }, children);
   }
   return createElement(DirectoryComponent, { props }, children);
 };
@@ -54,7 +54,7 @@ export const Component = Vue.extend<Props>({
   name: "DirectoryTree",
   functional: true,
   render: function (createElement, { props }) {
-    const { treeData, componentSet }  = props;
+    const { treeData, componentSet } = props;
     const visited: string[] = [];
     const elements = Object.keys(treeData.edges).map((edge) => {
       return createTreeComponent(createElement, edge, treeData, visited, componentSet);
