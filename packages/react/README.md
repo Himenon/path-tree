@@ -9,7 +9,7 @@
 ### Install
 
 ```bash
-yarn add @path-tree/react
+yarn add @path-tree/react tslib
 ```
 
 ### Basic Usage
