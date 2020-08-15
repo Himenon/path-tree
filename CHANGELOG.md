@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/Himenon/path-tree/compare/v0.3.1...v0.3.2) (2020-08-15)
+
+
+### Chores
+
+* **deps:** pin dependency vue to 2.6.11 ([fa8845f](https://github.com/Himenon/path-tree/commit/fa8845f))
+* **deps:** update commitlint monorepo to v9 ([dc119d9](https://github.com/Himenon/path-tree/commit/dc119d9))
+* **deps:** update dependency [@types](https://github.com/types)/jest to v26 ([ef17d7a](https://github.com/Himenon/path-tree/commit/ef17d7a))
+* **deps:** update dependency [@types](https://github.com/types)/jest to v26.0.10 ([2f60e49](https://github.com/Himenon/path-tree/commit/2f60e49))
+* **deps:** update dependency css-loader to v4 ([85af2b6](https://github.com/Himenon/path-tree/commit/85af2b6))
+* **deps:** update dependency eslint to v7.7.0 ([586422f](https://github.com/Himenon/path-tree/commit/586422f))
+* **deps:** update dependency eslint-plugin-react to v7.20.6 ([601655f](https://github.com/Himenon/path-tree/commit/601655f))
+* **deps:** update dependency jest to v26.4.0 ([da12eb4](https://github.com/Himenon/path-tree/commit/da12eb4))
+* **deps:** update dependency terser-webpack-plugin to v4 ([0f1e9c5](https://github.com/Himenon/path-tree/commit/0f1e9c5))
+* **deps:** update dependency ts-jest to v26.2.0 ([de0024e](https://github.com/Himenon/path-tree/commit/de0024e))
+* **deps:** update dependency ts-loader to v8 ([6f93fd5](https://github.com/Himenon/path-tree/commit/6f93fd5))
+* **deps:** update dependency typescript to v3.9.7 ([c32fb1d](https://github.com/Himenon/path-tree/commit/c32fb1d))
+* **deps:** update typescript-eslint monorepo to v3.9.0 ([4983f9e](https://github.com/Himenon/path-tree/commit/4983f9e))
+* **keywords:** add keywords in package.json ([e761844](https://github.com/Himenon/path-tree/commit/e761844))
+
+
+
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/Himenon/path-tree/compare/v0.3.0...v0.3.1) (2020-08-13)
 

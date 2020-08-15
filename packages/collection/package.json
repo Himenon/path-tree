@@ -1,9 +1,14 @@
 {
   "name": "@path-tree/collection",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "main": "index.js",
   "types": "index.d.ts",
-  "keywords": ["tree", "hierarchical", "file", "path"],
+  "keywords": [
+    "tree",
+    "hierarchical",
+    "file",
+    "path"
+  ],
   "description": "Provides a hierarchy of directories and files from a one-dimensional array of objects, including.",
   "license": "MIT",
   "files": [

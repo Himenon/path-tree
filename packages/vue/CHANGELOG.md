@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/Himenon/path-tree/compare/v0.3.1...v0.3.2) (2020-08-15)
+
+
+### Chores
+
+* **deps:** pin dependency vue to 2.6.11 ([fa8845f](https://github.com/Himenon/path-tree/commit/fa8845f))
+* **keywords:** add keywords in package.json ([e761844](https://github.com/Himenon/path-tree/commit/e761844))
+
+
+
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/Himenon/path-tree/compare/v0.3.0...v0.3.1) (2020-08-13)
 

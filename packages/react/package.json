@@ -1,6 +1,6 @@
 {
   "name": "@path-tree/react",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Provides components with a hierarchical structure.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,7 +9,14 @@
     "lib",
     "LICENSE"
   ],
-  "keywords": ["tree", "hierarchical", "file", "path", "react", "components"],
+  "keywords": [
+    "tree",
+    "hierarchical",
+    "file",
+    "path",
+    "react",
+    "components"
+  ],
   "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --config ./webpack.config.ts",
@@ -23,7 +30,7 @@
     "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "@path-tree/collection": "^0.3.0"
+    "@path-tree/collection": "^0.3.2"
   },
   "devDependencies": {
     "@babel/core": "7.11.1",
