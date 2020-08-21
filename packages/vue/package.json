@@ -33,7 +33,7 @@
     "@path-tree/collection": "^0.3.2"
   },
   "devDependencies": {
-    "vue": "2.6.11"
+    "vue": "2.6.12"
   },
   "publishConfig": {
     "access": "public"
