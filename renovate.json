@@ -1,3 +1,48 @@
 {
-  "extends": ["config:base"]
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "groupName": "jest group",
+      "packagePatterns": [
+        "jest",
+        "ts-jest"
+      ]
+    },
+    {
+      "groupName": "type definition",
+      "packagePatterns": [
+        "^@types"
+      ]
+    },
+    {
+      "groupName": "commit linting tool",
+      "packagePatterns": [
+        "^@commitlint",
+        "^commitizen",
+        "conventional-changelog-angular-all",
+        "lint-staged"
+      ]
+    },
+    {
+      "groupName": "eslint packages",
+      "packagePatterns": [
+        "^eslint"
+      ]
+    },
+    {
+      "groupName": "@babel packages",
+      "packagePatterns": [
+        "^@babel"
+      ]
+    },
+    {
+      "groupName": "Build tools",
+      "packagePatterns": [
+        "^autoprefixer",
+        "loader",
+        "webpack",
+        "rimraf"
+      ]
+    }
+  ]
 }
