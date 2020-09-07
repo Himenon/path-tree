@@ -4362,10 +4362,10 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@6.0.0, commander@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-6.0.0.tgz#2b270da94f8fb9014455312f829a1129dbf8887e"
-  integrity sha512-s7EA+hDtTYNhuXkTlhqew4txMZVdszBmKWSPEMxGr8ru8JXR7bLUFIAtPhcSuFdJQ0ILMxnJi8GkQL0yvDy/YA==
+commander@6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-6.1.0.tgz#f8d722b78103141006b66f4c7ba1e97315ba75bc"
+  integrity sha512-wl7PNrYWd2y5mp1OK/LhTlv8Ff4kQJQRXXAvF+uU/TPNiVJUxZLRYGj/B0y/lPGAVcSbJqH2Za/cvHmrPMC8mA==
 
 commander@^2.18.0, commander@^2.20.0:
   version "2.20.3"
@@ -4376,6 +4376,11 @@ commander@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
   integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
+
+commander@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-6.0.0.tgz#2b270da94f8fb9014455312f829a1129dbf8887e"
+  integrity sha512-s7EA+hDtTYNhuXkTlhqew4txMZVdszBmKWSPEMxGr8ru8JXR7bLUFIAtPhcSuFdJQ0ILMxnJi8GkQL0yvDy/YA==
 
 commitizen@4.2.1:
   version "4.2.1"
@@ -5245,17 +5250,17 @@ depd@~1.1.2:
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
 
-dependency-cruiser@9.12.0:
-  version "9.12.0"
-  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-9.12.0.tgz#729ee3b702160dc145e013f8b0db2f8906d55c93"
-  integrity sha512-qTw4uH5wgF2KwTszZ16rBzHbss720wVeIu5wqJEvUWlljr+tfrGVawz398vwjaXdbwphOWQ1gz0KU3LW7puGPw==
+dependency-cruiser@9.13.1:
+  version "9.13.1"
+  resolved "https://registry.yarnpkg.com/dependency-cruiser/-/dependency-cruiser-9.13.1.tgz#8a6a222f1302be58a7335ae8efd4456b3fe76662"
+  integrity sha512-4FwDON82DIKMv3XpKXuXMYli0iiwBSKCaZphKv6fSsPqXTe6c0LYgKWdc3TFzcPquMRpUe27p/5uu3wJFrLhHw==
   dependencies:
     acorn "7.4.0"
     acorn-loose "7.1.0"
     acorn-walk "7.2.0"
     ajv "6.12.4"
     chalk "4.1.0"
-    commander "6.0.0"
+    commander "6.1.0"
     enhanced-resolve "5.0.0-beta.10"
     figures "3.2.0"
     get-stream "6.0.0"
