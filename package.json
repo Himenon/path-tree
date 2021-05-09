@@ -20,7 +20,7 @@
     "commitizen": "4.2.1",
     "@types/jest": "26.0.13",
     "cross-env": "7.0.2",
-    "dependency-cruiser": "9.14.0",
+    "dependency-cruiser": "9.26.1",
     "sort-package-json": "1.44.0"
   }
 }
