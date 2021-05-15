@@ -26,8 +26,8 @@
     "clean": "rimraf lib tsconfig.tsbuildinfo"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^16.13.1 || ^17.0.0",
+    "react-dom": "^16.13.1 || ^17.0.0"
   },
   "dependencies": {
     "@path-tree/collection": "^0.3.2"
