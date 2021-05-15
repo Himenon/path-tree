@@ -15,8 +15,8 @@
   "devDependencies": {
     "lerna": "3.22.1",
     "jest": "26.4.2",
-    "@commitlint/cli": "9.1.2",
-    "@commitlint/config-conventional": "9.1.2",
+    "@commitlint/cli": "12.1.4",
+    "@commitlint/config-conventional": "12.1.4",
     "commitizen": "4.2.1",
     "@types/jest": "26.0.13",
     "cross-env": "7.0.2",
